@@ -1,0 +1,288 @@
+﻿:root {
+  color-scheme: light;
+  --page-bg: linear-gradient(180deg, #f8efe6 0%, #f3f7fb 55%, #ffffff 100%);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(18, 42, 66, 0.1);
+  --text-main: #132238;
+  --text-muted: #576779;
+  --accent: #0f766e;
+  --accent-strong: #0a5e58;
+  --warning-bg: #fef1d8;
+  --warning-text: #8a4b0f;
+  --status-bg: #ddf7ed;
+  --status-text: #0f5132;
+  --danger-bg: #ffe0dc;
+  --danger-text: #9f2d20;
+  --tag-bg: #edf4fb;
+  --tag-text: #25425e;
+  --focus-ring: #0f766e;
+  --shadow: 0 24px 70px rgba(19, 34, 56, 0.14);
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+}
+
+/* Basic reset so spacing behaves predictably */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+}
+
+body {
+  min-width: 320px;
+}
+
+/* Centers the card and keeps it comfortable on larger screens */
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+/* Main task card */
+.todo-card {
+  width: min(100%, 460px);
+  padding: 24px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  overflow-wrap: anywhere;
+}
+
+.card-header,
+.task-controls {
+  display: flex;
+  gap: 16px;
+}
+
+.card-header {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.title-group {
+  min-width: 0;
+}
+
+.eyebrow,
+.meta-label,
+.tags-heading {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.todo-title {
+  margin: 10px 0 0;
+  font-size: clamp(1.45rem, 4vw, 1.85rem);
+  line-height: 1.15;
+}
+
+.todo-card.is-complete .todo-title {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.meta-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.badge-priority {
+  background: var(--warning-bg);
+  color: var(--warning-text);
+}
+
+.badge-status {
+  background: var(--status-bg);
+  color: var(--status-text);
+}
+
+.todo-card.is-complete .badge-status {
+  background: #e6f6ee;
+  color: #166534;
+}
+
+.todo-description {
+  margin: 18px 0 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Two-column time section that collapses on mobile */
+.time-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.time-block {
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  background: rgba(237, 244, 251, 0.76);
+}
+
+.meta-value {
+  display: block;
+  margin-top: 8px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.time-remaining {
+  color: var(--accent-strong);
+}
+
+.task-controls {
+  margin-top: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.checkbox-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.todo-checkbox {
+  inline-size: 20px;
+  block-size: 20px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.checkbox-label {
+  font-weight: 600;
+}
+
+/* Shared button look for the quick actions */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--text-main);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+}
+
+.edit-button {
+  background: var(--accent);
+}
+
+.edit-button:hover {
+  background: var(--accent-strong);
+}
+
+.delete-button {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: rgba(159, 45, 32, 0.15);
+}
+
+.delete-button:hover {
+  background: #ffd3cd;
+}
+
+.todo-checkbox:focus-visible,
+.action-button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.tags-section {
+  margin-top: 24px;
+}
+
+.tag-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-weight: 600;
+}
+
+/* Small-screen layout keeps everything stacked and readable */
+@media (max-width: 640px) {
+  .todo-card {
+    padding: 20px;
+  }
+
+  .card-header,
+  .task-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .meta-badges {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .time-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    width: 100%;
+  }
+
+  .action-button {
+    flex: 1 1 140px;
+  }
+}
