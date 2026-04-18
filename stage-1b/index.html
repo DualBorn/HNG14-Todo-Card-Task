@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HNG14 Stage 1B Profile Card</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell" data-testid="test-profile-page-shell">
+      <section class="page-intro" data-testid="test-profile-page-intro">
+        <p class="eyebrow" data-testid="test-profile-page-kicker">Frontend Wizards</p>
+        <h1 class="page-title" data-testid="test-profile-page-title">Stage 1B Profile Card</h1>
+        <p class="page-copy" data-testid="test-profile-page-copy">
+          A clear, accessible, and responsive profile card built with plain HTML, CSS, and
+          JavaScript.
+        </p>
+      </section>
+
+      <article class="profile-card" data-testid="test-profile-card" aria-labelledby="profile-name">
+        <figure class="profile-media" data-testid="test-profile-media">
+          <img
+            class="profile-avatar"
+            src="assets/profile-avatar.svg"
+            alt="Portrait illustration of DB smiling in a blue shirt"
+            data-testid="test-user-avatar"
+          />
+          <figcaption class="profile-caption" data-testid="test-profile-caption">
+            Senior frontend engineer who enjoys turning messy product ideas into sharp, usable
+            interfaces.
+          </figcaption>
+        </figure>
+
+        <div class="profile-content" data-testid="test-profile-content">
+          <header class="profile-header" data-testid="test-profile-header">
+            <div class="profile-heading" data-testid="test-profile-heading">
+              <h2 id="profile-name" class="profile-name" data-testid="test-user-name">DB</h2>
+              <p class="profile-role" data-testid="test-profile-role">Senior Frontend Engineer</p>
+            </div>
+
+            <div class="profile-time-block" data-testid="test-profile-time-block">
+              <span class="time-label" data-testid="test-profile-time-label">Live epoch time</span>
+              <p class="profile-time" data-testid="test-user-time" aria-live="polite"></p>
+            </div>
+          </header>
+
+          <p class="profile-bio" data-testid="test-user-bio">
+            I build production-ready frontend systems with a strong bias for clarity, performance,
+            and maintainability. I enjoy design systems, thoughtful interaction details, and the
+            kind of engineering decisions that make products easier to scale long after the first
+            launch.
+          </p>
+
+          <nav class="social-nav" data-testid="test-user-social-links" aria-label="Social links">
+            <a
+              class="social-link"
+              href="https://github.com/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="test-user-social-github"
+            >
+              GitHub
+            </a>
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="test-user-social-linkedin"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="social-link"
+              href="https://x.com/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="test-user-social-twitter"
+            >
+              Twitter
+            </a>
+          </nav>
+
+          <div class="profile-lists" data-testid="test-profile-lists">
+            <section class="list-section" data-testid="test-profile-hobbies-section" aria-labelledby="hobbies-heading">
+              <h3 id="hobbies-heading" class="list-title" data-testid="test-profile-hobbies-title">Hobbies</h3>
+              <ul class="pill-list" data-testid="test-user-hobbies">
+                <li class="pill-item" data-testid="test-user-hobby-ui-design">Design systems</li>
+                <li class="pill-item" data-testid="test-user-hobby-reading">Performance tuning</li>
+                <li class="pill-item" data-testid="test-user-hobby-football">Mentoring</li>
+              </ul>
+            </section>
+
+            <section class="list-section" data-testid="test-profile-dislikes-section" aria-labelledby="dislikes-heading">
+              <h3 id="dislikes-heading" class="list-title" data-testid="test-profile-dislikes-title">Dislikes</h3>
+              <ul class="pill-list pill-list-muted" data-testid="test-user-dislikes">
+                <li class="pill-item" data-testid="test-user-dislike-clutter">Fragile codebases</li>
+                <li class="pill-item" data-testid="test-user-dislike-poor-contrast">Ambiguous specs</li>
+                <li class="pill-item" data-testid="test-user-dislike-late-feedback">Slow feedback loops</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
