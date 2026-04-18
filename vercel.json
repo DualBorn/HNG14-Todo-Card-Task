@@ -1,0 +1,26 @@
+{
+  "builds": [
+    {
+      "src": "stage-1b/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/stage-1b/index.html"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "/stage-1b/styles.css"
+    },
+    {
+      "src": "/script.js",
+      "dest": "/stage-1b/script.js"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/stage-1b/assets/$1"
+    }
+  ]
+}
