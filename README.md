@@ -1,154 +1,53 @@
-﻿# HNG14 Frontend Stage 1a - Advanced Todo Card
+﻿# HNG14 Frontend Tasks Repo
 
-This project is the Stage 1a upgrade of the HNG14 Frontend Wizards Todo Card task.
+This repository contains the HNG Frontend Wizards task submissions built with plain HTML, CSS, and vanilla JavaScript.
 
-It builds directly on the Stage 0 submission and keeps the project intentionally small: one Todo Card, not a full Todo app.
+## Included Tasks
 
-## Overview
+### Stage 1A - Advanced Todo Card
 
-The card was upgraded from a static, testable card into a more interactive and stateful component using plain HTML, CSS, and JavaScript.
+This task builds on the original Stage 0 Todo Card and remains at the repo root.
 
-The focus for this stage is still the same core quality bar:
+Files:
 
-- Testability
-- Accessibility
-- Responsiveness
+```text
+index.html
+styles.css
+script.js
+```
 
-But Stage 1a also adds:
+What it includes:
 
-- editable content
-- status transitions
-- priority changes
-- expand and collapse behavior
-- richer time handling
-- cleaner state synchronization
+- editable Todo content
+- synced checkbox and status control
+- priority and overdue visual states
+- collapsible description behavior
+- time updates and completed state handling
 
-## What Changed From Stage 0
+### Stage 1B - Testable Profile Card
 
-Stage 0 delivered a clean static Todo Card with exact testing hooks and basic completion behavior.
+This task is implemented as a separate static page inside the `stage-1b/` folder.
 
-Stage 1a extends that foundation with:
+Files:
 
-- an edit mode with save and cancel actions
-- a dedicated status control
-- synced checkbox and status logic
-- a visual priority indicator
-- a collapsible description section
-- an overdue indicator
-- more detailed time remaining messages
-- a completed state that replaces the time message with `Completed`
+```text
+stage-1b/
+├── index.html
+├── styles.css
+├── script.js
+└── assets/
+    └── profile-avatar.svg
+```
 
-## Stage 1a Features
+What it includes:
 
-### Edit Mode
-
-The card now supports inline editing.
-
-Added test hooks:
-
-- `test-todo-edit-form`
-- `test-todo-edit-title-input`
-- `test-todo-edit-description-input`
-- `test-todo-edit-priority-select`
-- `test-todo-edit-due-date-input`
-- `test-todo-save-button`
-- `test-todo-cancel-button`
-
-Behavior:
-
-- clicking `Edit` opens the form
-- `Save` updates the visible card
-- `Cancel` closes the form without changing the current values
-- focus returns to the Edit button when the form closes
-
-### Status Control
-
-Added test hook:
-
-- `test-todo-status-control`
-
-Allowed statuses:
-
-- `Pending`
-- `In Progress`
-- `Done`
-
-Behavior:
-
-- checking the checkbox sets the status to `Done`
-- setting status to `Done` checks the checkbox
-- unchecking after `Done` resets status to `Pending`
-
-### Priority Indicator
-
-Added test hook:
-
-- `test-todo-priority-indicator`
-
-The card now shows a clear visual priority accent that changes for:
-
-- `Low`
-- `Medium`
-- `High`
-
-### Expand / Collapse
-
-Added test hooks:
-
-- `test-todo-expand-toggle`
-- `test-todo-collapsible-section`
-
-Behavior:
-
-- long descriptions start collapsed
-- the toggle reveals or hides the full content
-- the toggle uses `aria-expanded` and `aria-controls`
-
-### Time Management
-
-Added test hook:
-
-- `test-todo-overdue-indicator`
-
-Behavior:
-
-- time updates every 30 seconds
-- time shows day, hour, or minute-level detail
-- overdue state is visually highlighted
-- if the task is marked `Done`, the time display changes to `Completed`
-
-## Accessibility Notes
-
-This project keeps the Stage 0 accessibility base and expands it for Stage 1a:
-
-- edit fields use proper `<label for="">`
-- the status dropdown has a visible accessible label
-- the expand toggle uses `aria-expanded` and `aria-controls`
-- the time text uses `aria-live="polite"`
-- focus styles remain visible for all interactive elements
-- keyboard access was preserved for the main control flow
-
-## Responsive Behavior
-
-The card remains mobile-first and responsive.
-
-It has been adjusted to handle:
-
-- 320px mobile screens
-- tablet layouts
-- wider desktop layouts
-- long titles
-- long descriptions
-- wrapped tags
-- stacked edit form fields on smaller screens
-
-## Tech Stack
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-
-No frameworks or external libraries were used.
+- semantic profile card structure
+- avatar with meaningful alt text
+- current epoch time in milliseconds
+- social links that open safely in a new tab
+- distinct hobbies and dislikes lists
+- responsive mobile, tablet, and desktop layout
+- visible focus styles and accessible markup
 
 ## Project Structure
 
@@ -157,31 +56,31 @@ No frameworks or external libraries were used.
 ├── index.html
 ├── styles.css
 ├── script.js
-└── README.md
+├── README.md
+└── stage-1b/
+    ├── index.html
+    ├── styles.css
+    ├── script.js
+    └── assets/
+        └── profile-avatar.svg
 ```
 
 ## How To Run Locally
 
+### Stage 1A
+
 1. Open the project folder.
 2. Open `index.html` in your browser.
 
-You can also use Live Server in VS Code if you want live refresh while testing interactions.
+### Stage 1B
 
-## Design Decisions
+1. Open the `stage-1b` folder.
+2. Open `stage-1b/index.html` in your browser.
 
-A few deliberate choices were made for this stage:
+You can also use a local static server or VS Code Live Server for both pages.
 
-- the project still uses a single-page static setup for simplicity
-- state is managed in plain JavaScript through a single shared state object
-- rendering is split into small helper functions to keep the code modular and readable
-- the card keeps all Stage 0 test hooks while layering in the new Stage 1a hooks
+## Notes
 
-## Known Limitations
-
-- this is still one standalone card, not a multi-item Todo app
-- edit mode returns focus cleanly, but focus trapping inside the form was not added
-- delete remains a demo action using an alert, as allowed by the task
-
-## Goal Of The Project
-
-The goal of this Stage 1a update was to keep the clean Stage 0 foundation while making the Todo Card more interactive, stateful, accessible, and realistic without turning it into a full application.
+- Both tasks were built without frameworks or external UI libraries.
+- The repo keeps Stage 1A and Stage 1B separate so each submission page remains clear and easy to test.
+- Stage 1B updates the displayed epoch time every second using `Date.now()`.
